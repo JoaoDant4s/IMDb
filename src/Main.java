@@ -17,7 +17,7 @@ public class Main {
             System.out.println("Diretor: " + director.getName());
         }
 
-        Object obj = Database.getByClassAndId(Director.class, 1);
+        Object obj = Database.getByClassAndId(Director.class, 1L);
         Director director = (Director) obj;
         System.out.println("Diretor encontrado: " + director.getName());
     }

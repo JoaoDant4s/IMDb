@@ -24,11 +24,11 @@ public class Database {
             throw new IllegalArgumentException("Unsupported class: " + clazz.getName());
         }
     }
-    public static void save(Integer id, Object object){
+    public static void save(Long id, Object object){
         Hashtable ht = getTable(object.getClass());
         ht.put(id, object);
     }
-    public static void delete(Class clazz, Integer id){
+    public static void delete(Class clazz, Long id){
         Hashtable ht = getTable(clazz);
         ht.remove(id);
     }
@@ -37,7 +37,7 @@ public class Database {
         return new ArrayList(ht.values());
     }
 
-    public static Object getByClassAndId(Class clazz, Integer id){
+    public static Object getByClassAndId(Class clazz, Long id){
         Hashtable ht = getTable(clazz);
         return ht.get(id);
     }

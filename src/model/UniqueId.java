@@ -1,15 +1,15 @@
 package model;
 
 public abstract class UniqueId {
-    private static Integer idIncrementer = 1;
-    private final Integer id;
+    private static Long idIncrementer = 1L;
+    private final Long id;
 
     public UniqueId() {
         this.id = idIncrementer;
         idIncrementer++;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 }

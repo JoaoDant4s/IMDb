@@ -4,15 +4,43 @@ import model.Actor;
 import model.Director;
 import model.Movie;
 
+import java.util.ArrayList;
 import java.util.Hashtable;
+import java.util.List;
 
 public class Database {
-    private static final Hashtable<Integer, Movie> movie = new Hashtable<>();
-    private static final Hashtable<Integer, Actor> actor = new Hashtable<>();
-    private static final Hashtable<Integer, Director> director = new Hashtable<>();
+    private static final Hashtable<Integer, Movie> movies = new Hashtable<>();
+    private static final Hashtable<Integer, Actor> actors = new Hashtable<>();
+    private static final Hashtable<Integer, Director> directors = new Hashtable<>();
 
-    public static void save(Object object){}
-    public static void delete(Object object){}
-    public static void getAllByClass(Class clazz){}
+    private static Hashtable getTable(Class clazz){
+        if(clazz == Movie.class){
+            return movies;
+        } else if(clazz == Actor.class){
+            return actors;
+        } else if(clazz == Director.class){
+            return directors;
+        } else {
+            throw new IllegalArgumentException("Unsupported class: " + clazz.getName());
+        }
+    }
+    public static void save(Integer id, Object object){
+        Hashtable ht = getTable(object.getClass());
+        ht.put(id, object);
+    }
+    public static void delete(Class clazz, Integer id){
+        Hashtable ht = getTable(clazz);
+        ht.remove(id);
+    }
+    public static List getAllByClass(Class clazz){
+        Hashtable ht = getTable(clazz);
+        return new ArrayList(ht.values());
+    }
+
+    public static Object getByClassAndId(Class clazz, Integer id){
+        Hashtable ht = getTable(clazz);
+        return ht.get(id);
+    }
+
 
 }

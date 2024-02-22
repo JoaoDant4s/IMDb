@@ -5,6 +5,10 @@ import model.Director;
 import java.util.List;
 
 public class DirectorRepository extends AbstractRepository{
+
+    public void saveDirector(Director director){
+        save(director.getId(), director);
+    }
     public Director getDirectorById(Long id){
         Object obj = getById(id);
         return (Director) obj;

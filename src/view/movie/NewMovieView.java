@@ -1,6 +1,7 @@
 package view.movie;
 
 import model.Actor;
+import model.Director;
 import service.MovieService;
 import view.actor.NewActorView;
 import view.components.Input;
@@ -28,7 +29,8 @@ public class NewMovieView{
         for(Actor actor : actors){
             System.out.println(actor.getName());
         }
-//        Director director = newDirectorView.createDirector();
+        Director director = newDirectorView.createDirector();
+        System.out.println("Diretor criado com sucesso: " + director.getName() + director.getBirthDate().toString());
     }
 }
 

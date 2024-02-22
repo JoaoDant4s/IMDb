@@ -24,8 +24,8 @@ public class Database {
             throw new IllegalArgumentException("Unsupported class: " + clazz.getName());
         }
     }
-    public static void save(Long id, Object object){
-        Hashtable ht = getTable(object.getClass());
+    public static void save(Long id, Object object, Class clazz){
+        Hashtable ht = getTable(clazz);
         ht.put(id, object);
     }
     public static void delete(Class clazz, Long id){

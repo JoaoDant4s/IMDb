@@ -8,6 +8,8 @@ import service.exception.InvalidModelException;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class MovieService extends AbstractValidateService{
@@ -42,6 +44,17 @@ public class MovieService extends AbstractValidateService{
         }
         movieRepository.saveMovie(movie);
         return movie;
+    }
+
+    public List<Movie> findMoviesByName(String movieName){
+        List<Movie> movies = movieRepository.getAllMovies();
+        List<Movie> matchedMovies = new ArrayList<>();
+        for(Movie movie : movies){
+            if(movie.getName().trim().toLowerCase().contains(movieName.trim().toLowerCase())){
+                matchedMovies.add(movie);
+            }
+        }
+        return Collections.unmodifiableList(matchedMovies);
     }
 
     public List<Movie> listAllMovies(){

@@ -22,8 +22,8 @@ public class MainMenu extends AbstractMenu {
     protected void executeChoice(Integer choice){
         switch (choice){
             case 1 -> new NewMovieView().execute();
-            case 2 -> new ListMoviesView().execute();
-            case 3 -> System.out.println("WIP");
+            case 2 -> new ListMoviesView().listMovies();
+            case 3 -> new ListMoviesView().findMovie();
             case 4 -> System.exit(1);
         }
         execute();

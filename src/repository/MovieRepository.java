@@ -2,6 +2,7 @@ package repository;
 
 import model.Movie;
 
+import java.util.Collections;
 import java.util.List;
 
 public class MovieRepository extends AbstractRepository{
@@ -14,7 +15,7 @@ public class MovieRepository extends AbstractRepository{
 
     public List<Movie> getAllMovies(){
         List list = getAll();
-        return (List<Movie>) list;
+        return Collections.unmodifiableList((List<Movie>) list);
     }
 
     @Override

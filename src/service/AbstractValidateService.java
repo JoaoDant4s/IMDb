@@ -3,7 +3,7 @@ package service;
 import service.exception.InvalidDatePatternException;
 import service.exception.InvalidModelException;
 import service.exception.ServiceException;
-import util.DateConverter;
+import view.util.DateConverter;
 
 import java.time.LocalDate;
 

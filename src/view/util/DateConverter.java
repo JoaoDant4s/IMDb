@@ -1,4 +1,4 @@
-package util;
+package view.util;
 
 import service.exception.InvalidDatePatternException;
 
@@ -15,6 +15,11 @@ public class DateConverter {
         } catch(DateTimeParseException exception){
             throw new InvalidDatePatternException("Formato da data inválido", exception);
         }
+    }
+
+    public static String formatDateByPattern(LocalDate date, String pattern) {
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern(pattern);
+            return date.format(formatter);
     }
 
     public static Integer calculateAge(LocalDate birthDate){

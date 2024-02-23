@@ -5,7 +5,7 @@ import model.Director;
 import model.Movie;
 import service.MovieService;
 import service.exception.ServiceException;
-import util.TerminalLettersColor;
+import view.util.TerminalLettersColor;
 import view.actor.NewActorView;
 import view.components.Input;
 import view.director.NewDirectorView;

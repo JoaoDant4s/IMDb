@@ -3,7 +3,6 @@ import view.MainMenu;
 public class Main {
     public static void main(String[] args) {
         System.out.println("Bem vindo ao IMDb!");
-        MainMenu mainMenu = new MainMenu();
-        mainMenu.execute();
+        new MainMenu().execute();
     }
 }

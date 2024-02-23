@@ -17,7 +17,7 @@ public class NewDirectorView {
     }
 
     public Director createDirector(){
-        System.out.println("Cadastro do diretor");
+        System.out.println("----Cadastro do diretor----");
         System.out.print("Digite o nome do diretor: ");
         String name = scan.nextLine();
         System.out.print("Digite a data de nascimento do diretor (DD/MM/AAAA): ");

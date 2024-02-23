@@ -5,7 +5,7 @@ import repository.DirectorRepository;
 
 import java.time.LocalDate;
 
-public class DirectorService extends AbstractPersonService{
+public class DirectorService extends AbstractValidateService{
     DirectorRepository directorRepository;
 
     public DirectorService(){

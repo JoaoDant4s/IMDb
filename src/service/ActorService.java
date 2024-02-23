@@ -6,7 +6,7 @@ import repository.ActorRepository;
 import java.time.LocalDate;
 import java.util.List;
 
-public class ActorService extends AbstractPersonService{
+public class ActorService extends AbstractValidateService{
     private final ActorRepository actorRepository;
 
     public ActorService(){

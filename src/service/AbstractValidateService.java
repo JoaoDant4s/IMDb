@@ -7,7 +7,7 @@ import util.DateConverter;
 
 import java.time.LocalDate;
 
-public abstract class AbstractPersonService {
+public abstract class AbstractValidateService {
     public void validate(String name, String birthString, String className){
         if(name == null || birthString == null){
             throw new InvalidModelException(className + " informado com campo nulo");

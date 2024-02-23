@@ -33,7 +33,7 @@ public class NewActorView{
     }
 
     public List<Actor> createListOfActors(){
-        System.out.println("Vamos começar cadastrando os atores do filme");
+        System.out.println("----Vamos começar cadastrando os atores do filme----");
         List<Actor> actorsToBeCreated = new ArrayList<>();
         for(Integer i = 1; true;){
             Actor actor = createActor(i);

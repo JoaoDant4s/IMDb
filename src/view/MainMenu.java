@@ -1,5 +1,6 @@
 package view;
 
+import view.movie.ListMoviesView;
 import view.movie.NewMovieView;
 
 public class MainMenu extends AbstractMenu {
@@ -21,7 +22,7 @@ public class MainMenu extends AbstractMenu {
     protected void executeChoice(Integer choice){
         switch (choice){
             case 1 -> new NewMovieView().execute();
-            case 2 -> System.out.println("WIP");
+            case 2 -> new ListMoviesView().execute();
             case 3 -> System.out.println("WIP");
             case 4 -> System.exit(1);
         }

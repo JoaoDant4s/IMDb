@@ -4,6 +4,7 @@ import model.Actor;
 import model.Movie;
 import service.MovieService;
 import service.exception.ServiceException;
+import service.exception.ServiceRuntimeException;
 import view.util.DateConverter;
 import view.components.Input;
 import view.util.TerminalLettersColor;
@@ -26,18 +27,29 @@ public class ListMoviesView {
         try{
             List<Movie> movies = movieService.findMoviesByName(movieName);
             printMovies(movies);
-        } catch (ServiceException e){
-            System.out.println();
+        } catch (ServiceRuntimeException e){
+            System.out.println(e.getMessage());
             findMovie();
+        }
+    }
+
+    public void printIdAndMovieName(){
+        List<Movie> movies = movieService.listAllMovies();
+        if(!movies.isEmpty()){
+            System.out.println("Id | Nome");
+        }
+        for(Movie movie : movies){
+            System.out.println(movie.getId() + " - " + movie.getName());
         }
     }
 
     public void printMovies(List<Movie> movies){
         if(movies.isEmpty()){
             System.out.println(TerminalLettersColor.yellowOpen + "--Nenhum filme encontrado--" + TerminalLettersColor.yellowClose);
+        } else {
+            System.out.println(TerminalLettersColor.purpleBackgroundOpen + "--Filmes encontrados--" + TerminalLettersColor.purpleBackgroundClose );
         }
         for (Movie movie : movies){
-            System.out.println(TerminalLettersColor.purpleBackgroundOpen + "--Filmes encontrados--" + TerminalLettersColor.purpleBackgroundClose );
             System.out.println(TerminalLettersColor.greenOpen + movie.getId() + " - " + movie.getName() + TerminalLettersColor.greenClose);
             System.out.println("★ " + movie.getDirector().getName() + " - " + DateConverter.calculateAge(movie.getDirector().getBirthDate())  + " anos");
             for(Actor actor : movie.getActors()){

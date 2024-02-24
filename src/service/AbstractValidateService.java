@@ -3,6 +3,7 @@ package service;
 import service.exception.InvalidDatePatternException;
 import service.exception.InvalidModelException;
 import service.exception.ServiceException;
+import service.exception.ServiceRuntimeException;
 import view.util.DateConverter;
 
 import java.time.LocalDate;
@@ -19,7 +20,7 @@ public abstract class AbstractValidateService {
         try{
             birthDate = DateConverter.formatDateStringByPattern(birthString, "dd/MM/yyyy");
         } catch(InvalidDatePatternException exception){
-            throw new ServiceException(exception.getMessage(), exception);
+            throw new ServiceRuntimeException(exception.getMessage(), exception);
         }
         return birthDate;
     }

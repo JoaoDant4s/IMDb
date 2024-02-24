@@ -1,5 +1,5 @@
 package service.exception;
 
-public class ServiceException extends RuntimeException{
-    public ServiceException(String message, RuntimeException cause){ super(message, cause);}
+public class ServiceException extends Exception{
+    public ServiceException(String message, Exception cause){ super(message, cause);}
 }

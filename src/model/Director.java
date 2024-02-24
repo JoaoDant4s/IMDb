@@ -6,17 +6,17 @@ import java.util.Collections;
 import java.util.List;
 
 public class Director extends Person{
-    private final List<Movie> participatedMovies;
+    private final List<Long> participatedMoviesId;
     public Director(String name, LocalDate birthDate) {
         super(name, birthDate);
-        this.participatedMovies = new ArrayList<>();
+        this.participatedMoviesId = new ArrayList<>();
     }
 
-    public List<Movie> getParticipatedMovies() {
-        return Collections.unmodifiableList(participatedMovies);
+    public List<Long> getParticipatedMovies() {
+        return Collections.unmodifiableList(participatedMoviesId);
     }
 
-    public void addParticipatedMovie(Movie participatedMovies) {
-        this.participatedMovies.add(participatedMovies);
+    public void addParticipatedMovie(Long participatedMovieId) {
+        this.participatedMoviesId.add(participatedMovieId);
     }
 }

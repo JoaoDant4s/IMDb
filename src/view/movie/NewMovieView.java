@@ -5,6 +5,7 @@ import model.Director;
 import model.Movie;
 import service.MovieService;
 import service.exception.ServiceException;
+import service.exception.ServiceRuntimeException;
 import view.util.TerminalLettersColor;
 import view.actor.NewActorView;
 import view.components.Input;
@@ -39,7 +40,7 @@ public class NewMovieView{
         Movie movie = null;
         try{
             movie = movieService.createMovie(name, releaseString, budget, description, actors, director);
-        } catch(ServiceException exception) {
+        } catch(ServiceRuntimeException exception) {
             System.err.println(exception.getMessage());
         }
         return movie;
@@ -47,7 +48,9 @@ public class NewMovieView{
 
     public void execute(){
         List<Actor> actors = newActorView.createListOfActors();
-        System.out.println(TerminalLettersColor.greenOpen + "Atores criados com sucesso" + TerminalLettersColor.greenClose);
+        if(!actors.isEmpty()){
+            System.out.println(TerminalLettersColor.greenOpen + "Atores criados com sucesso" + TerminalLettersColor.greenClose);
+        }
         Director director = newDirectorView.createDirector();
         System.out.println(TerminalLettersColor.greenOpen + "Diretor criado com sucesso" + TerminalLettersColor.greenClose);
         Movie movie = createMovie(actors, director);

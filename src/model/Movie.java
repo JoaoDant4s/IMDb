@@ -11,7 +11,7 @@ public class Movie extends UniqueId {
     private final LocalDate release;
     private final BigDecimal budget;
     private String description;
-    private final Director director;
+    private Director director;
     private final List<Actor> actors;
 
     public Movie(String name, LocalDate release, BigDecimal budget, String description, Director director) {
@@ -47,6 +47,7 @@ public class Movie extends UniqueId {
     public Director getDirector() {
         return director;
     }
+    public void setDirector(Director director){ this.director = director;}
 
     public List<Actor> getActors() {
         return Collections.unmodifiableList(actors);
